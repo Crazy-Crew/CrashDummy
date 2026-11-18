@@ -1,0 +1,39 @@
+import io.papermc.hangarpublishplugin.model.Platforms
+import org.gradle.kotlin.dsl.support.uppercaseFirstChar
+
+plugins {
+    id("io.papermc.hangar-publish-plugin")
+
+    id("shared-plugin")
+}
+
+hangarPublish {
+    publications.register("plugin") {
+        apiKey.set(System.getenv("HANGAR_KEY"))
+
+        id.set("${rootProject.property("project_id")}")
+
+        version.set("${rootProject.version}")
+
+        changelog.set(rootProject.ext.get("mc_changelog").toString())
+
+        channel.set(rootProject.ext.get("release_type").toString().uppercaseFirstChar())
+
+        pages.resourcePage(rootProject.file("README.md").readText(Charsets.UTF_8))
+
+        platforms {
+            register(Platforms.PAPER) {
+                jar.set(tasks.named<Jar>("jar").flatMap { it.archiveFile })
+
+                platformVersions.set(rootProject.property("project_versions").toString().split(",").map { it.trim() })
+
+                dependencies {
+                    // placeholder plugins
+                    hangar("PlaceholderAPI") {
+                        required = false
+                    }
+                }
+            }
+        }
+    }
+}

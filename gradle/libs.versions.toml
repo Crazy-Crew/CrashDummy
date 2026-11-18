@@ -24,7 +24,7 @@ fabric-api = "0.166.2+26.3" # https://fabricmc.net/develop/
 fix-javadoc = "1.19" # https://github.com/mfnalex/gradle-fix-javadoc-plugin
 curseforge = "1.1.26" # https://github.com/Darkhax/CurseForgeGradle
 minotaur = "2.10.0" # https://github.com/modrinth/minotaur
-feather = "0.8.3" # https://github.com/ryderbelserion/Feather
+feather = "0.8.4" # https://github.com/ryderbelserion/Feather
 hangar = "0.1.4" # https://github.com/HangarMC/hangar-publish-plugin
 shadow = "9.6.1" # https://github.com/GradleUp/shadow
 

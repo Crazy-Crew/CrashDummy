@@ -47,10 +47,10 @@ jobs:
         if: success()
         run: gradle release-build --stacktrace
         env:
-          BUILD_WEBHOOK: ${{ secrets.BUILD_WEBHOOK }}
+          BUILD_WEBHOOK: ${{ secrets.DEBUG_WEBHOOK }}
 
       - name: Notify Failed Build
         if: failure()
         run: gradle failed-build --stacktrace
         env:
-          BUILD_WEBHOOK: ${{ secrets.BUILD_WEBHOOK }}
+          BUILD_WEBHOOK: ${{ secrets.DEBUG_WEBHOOK }}

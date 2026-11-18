@@ -68,8 +68,8 @@ feather {
             group(rootProject.name.lowercase())
             task("release-build")
 
-            if (System.getenv("BUILD_WEBHOOK") != null) {
-                post(System.getenv("BUILD_WEBHOOK"))
+            if (System.getenv("DEBUG_WEBHOOK") != null) {
+                post(System.getenv("DEBUG_WEBHOOK"))
             }
 
             if (isRelease) {
@@ -123,8 +123,8 @@ feather {
             group(rootProject.name.lowercase())
             task("failed-build")
 
-            if (System.getenv("BUILD_WEBHOOK") != null) {
-                post(System.getenv("BUILD_WEBHOOK"))
+            if (System.getenv("DEBUG_WEBHOOK") != null) {
+                post(System.getenv("DEBUG_WEBHOOK"))
             }
 
             username(rootProject.property("mascot_name").toString())

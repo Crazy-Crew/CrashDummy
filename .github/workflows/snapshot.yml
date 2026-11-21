@@ -27,6 +27,7 @@ env:
   commit_msg: ${{ github.event.head_commit.message }}
   commit_id: ${{ github.sha }}
   version_status: beta
+  is_webhook_enabled: ${{ vars.IS_WEBHOOK_ENABLED }}
 
 jobs:
   build:
